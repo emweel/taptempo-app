@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -6,9 +6,12 @@ app = Flask(__name__)
 def hello():
     return 'Hello stinkin world!'
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    if request.method == 'POST':
+        return render_template('index.html', curTempo= '1')
+
+    return render_template('index.html', curTempo = '0')
 
 if __name__ == '__main__':
     app.run()
