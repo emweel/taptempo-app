@@ -1,3 +1,4 @@
 # taptempo-app
 requirement
- * FLASK
+ * Python 3
+ * Flask
